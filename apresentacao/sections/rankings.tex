@@ -1,0 +1,94 @@
+\section{Criação do Ranking}
+
+\begin{frame}{Definição Estatística}
+Seja $X$ o número de carros que passam em frente a um logradouro durante um
+intervalo de 15 minutos, então $X$ é uma variável aleatório \textbf{discreta}.
+
+Foram extraídas $20$ amostras \textbf{aleatórias} e \textbf{independentes} de
+$X$. Deseja-se ordenar as amostras a partir da média amostral levando em conta
+a existência ou não de diferenças significativas entre elas. Assim, foram
+utilizadas as seguintes hipóteses para cada par de amostras:
+
+\vskip 0.5cm
+
+$H_{0}$: Não existe diferença significativa entre as médias amostrais de duas
+amostras de $X$.
+
+$H_{1}$: Existe uma diferença significativa entre as médias amostrais de duas
+amostras de $X$.
+\end{frame}
+
+\begin{frame}{Criação do Ranking}
+Para criar o ranking, foram utilizadas as médias de cada uma das $20$ amostras.
+
+\vskip 0.2cm
+
+Para testar se a diferença entre as amostras é estatisticamente significante,
+foi necessário selecionar um teste não-paramétrico, já que as amostras não são
+normais.
+
+\vskip 0.2cm
+
+Assim, foi realizado um teste de Wilcoxon (não pareado) com significância
+$\alpha = 0.05$. O teste foi aplicado para todos os pares de amostras.
+
+\vskip 0.2cm
+
+A função do R utilizada foi \texttt{wilcox.test} com parâmetro \texttt{paired}
+igual a falso.
+\end{frame}
+
+\begin{frame}{Criação de Ranking}
+Para construir o \textit{ranking}, primeiramente, as amostras foram ordenadas de
+forma decrescente de acordo com seus respectivos fluxos médios de veículos.
+
+Então, começando pela amostra com maior fluxo médio e seguindo na ordem, foram
+realizados os seguintes passos:
+\begin{enumerate}
+	\item O \textit{rank} atual (começando pelo 1º) é atribuído a amostra;
+	\item Todas as amostras que não possuem diferenças significativas (segundo o
+	teste de Wilcoxon) para a amostra considerada e que ainda não foram
+	adicionadas ao \textit{ranking}, são também adicionadas na mesma colocação;
+	\item Se ainda existem amostras não inseridas no \textit{ranking}, passamos
+	para a próxima amostra na ordem e para o próximo \textit{rank} e repetimos
+	os passos.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Criação de Ranking}
+O ranking final obtido foi:
+\begin{enumerate}
+	\item[1] Avenida Cais de Santa Rita, próximo ao número 675;
+	\item[2] Avenida Antônio Goes, após a Ponte Agamenon Magalhães, sentido Derby;
+	\item[3] Avenida Agamenon Magalhães, próximo ao viaduto Presidente Médici;
+	\item[4] Avenida Conselheiro Aguiar, próximo número 1350;
+	\item[4] Rua Capitão Temudo, Cabanga, sentido Pina;
+	\item[5] Avenida Mascarenhas de Moraes, perto do Aeroporto;
+	\item[6] Avenida Engenheiro Antônio Goes, número 124;
+	\item[6] Avenida General San Martin, número 1864;
+	\item[7] Avenida Saturtino de Brito, número 445;
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Criação de Ranking}
+O ranking final obtido foi:
+\begin{enumerate}
+	\item[7] Rua Arquiteto Luiz Nunes, entre número 314 e 375, sentido IPSEP;
+	\item[7] Avenida Maurício de Nassau, número 276;
+	\item[7] Avenida Alfredo Lisboa, número 33;
+	\item[7] Rua Arquiteto Luiz Nunes, número 261A, sentido subúrbio;
+	\item[7] Rua Arquiteto Luiz Nunes, número 261A, sentido centro;
+	\item[8] Avenida Dom João VI;
+	\item[8] Avenida Engenheiro José Estelita;
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Criação de Ranking}
+O ranking final obtido foi:
+\begin{enumerate}
+	\item[9] Avenida Boa Viagem, próximo ao terceiro jardim;
+	\item[10] Avenida Afonso Olindense, número 996;
+	\item[11] Avenida Boa Viagem, entre os números 6114 e 5888;
+	\item[12] Avenida Rui Barbosa, número 1397;
+\end{enumerate}
+\end{frame}

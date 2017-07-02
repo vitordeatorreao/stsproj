@@ -14,6 +14,15 @@ Para executar os experimentos e análises desse projeto, é necessário primeiro
 instalar o R. Isso pode ser feito acessando o
 [site oficial da linguagem](https://www.r-project.org/).
 
+### Pacotes R utilizados
+
+Você precisa instalar o pacote "PMCMR" se quiser obter o ranking pelo teste
+de Nemenyi. Para isso, abra o R e execute:
+
+```R
+install.packages('PMCMR')
+```
+
 ## Execução do Experimento
 
 Para gerar as imagens utilizadas na apresentação e no relatório, execute o
@@ -21,9 +30,15 @@ script R, `projeto.R`. Para isso, execute o seguinte comando no terminal (ou
 prompt de comando no caso do Windows):
 
 ```
-$ R CMD BATCH projeto.R
+$ RScript projeto.R
 ```
 
 Isso irá gerar as imagens dentro das pastas `histograms`, `boxplots` e
 `qqplots`, assim como irá imprimir na tela as estatísticas e resultados dos
 testes apresentados nos documentos.
+
+## Geração do documento de apresentação (LaTeX)
+
+Para gerar o documento de apresentação (slides) do projeto, você precisa
+primeiro executar os scripts R na pasta raiz e na pasta "horario_de_pico", pois
+o documento de apresentação utiliza as imagens geradas por esses scripts.

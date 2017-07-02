@@ -1,4 +1,17 @@
+# arquivos gerados
+*.log
 *.png
-*.pdf
+
+# R
 .RData
 *.Rout
+*.Rhistory
+
+# latex
+*.aux
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.pdf

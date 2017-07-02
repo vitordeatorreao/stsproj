@@ -1,0 +1,604 @@
+\section{Exploração dos Dados}
+
+\begin{frame}{Exploração dos Dados}
+A base disponibilizada pela Prefeitura do Recife possui as seguintes
+características:
+\begin{itemize}
+	\item Registro do fluxo de veículos nas vias mais movimentadas do Recife;
+	\item A granularidade dos dados é de número de veículos em um intervalo
+	de 15 minutos;
+	\item O período de medições foi entre 8 de junho de 2015 e 12 de junho
+	de 2015;
+	\item A CTTU é o responsável pelos dados, que foram disponibilizados
+	pela Emprel;
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Os campos disponíveis são:
+\begin{itemize}
+	\item \textbf{Logradouro}: onde o equipamento de monitoração estava
+	instalado;
+	\item \textbf{Data}: a data de quando ocorreu cada monitoração;
+	\item \textbf{Hora}: o intervalo no qual a medição foi feita;
+	\item \textbf{Caminhões Grandes}: a quantidade de caminhões grandes que
+	passaram;
+	\item \textbf{Caminhões Médios/Grandes}
+	\item \textbf{Caminhões Médios/Pequenos}
+	\item \textbf{Caminhões Pequenos}
+	\item \textbf{Motocicletas}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Os campos disponíveis são:
+\begin{itemize}
+	\item \textbf{Não Reconhecido}
+	\item \textbf{Ônibus Grande}
+	\item \textbf{Ônibus Pequeno}
+	\item \textbf{Passeio Grande}
+	\item \textbf{Passeio Pequeno}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+As vias contempladas foram: Avenida Boa Viagem, Rua Arquiteto Luiz Nunes,
+Avenida General San Martin, Avenida Afonso Olindense, Avenida Maurício de
+Nassau, Avenida Alfredo Lisboa, Rua Capitão Temudo (Cabanga, em frente à Praça
+Governador Paulo Guerra), Avenida Antônio Goes, Avenida Dom João VI, Avenida
+Saturnino de Brito, Avenida Governador Agamenon Magalhães, Avenida Mascarenhas
+de Moraes, Avenida Conselheiro Aguiar, Avenida Engenheiro José Estelita, Avenida
+Cais Santa Rita, Avenida Rui Barbosa.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Os últimos 10 campos foram somados na computação do fluxo total da via no
+período de medição.
+\vskip 0.5cm
+A base foi particionada em $20$ amostras, uma para cada logradouro, de tamanhos
+diferentes (pois há valores faltando, ou \textit{missing values}).
+\vskip 0.5cm
+Nos slides seguintes, serão mostrados os histogramas, \textit{boxplots} e
+\textit{Q-Q plots} de cada uma das amostras, assim como o p-valor para o teste
+de normalidade Shapiro-Wilk.
+\end{frame}
+
+
+\begin{frame}{Exploração dos Dados}
+Avenida Boa Viagem, entre os números 6114 e 5888:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street1.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street1.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street1.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $105.0699$; Desvio Padrão: $68.4856$; Mediana: $114.5$.
+
+P-valor do Shapiro-Wilk: $1.1192 \times 10^{-17}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Boa Viagem, no terceiro jardim:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street2.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street2.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street2.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $149.22$; Desvio Padrão: $98.1323$; Mediana: $167$.
+
+P-valor do Shapiro-Wilk: $1.7536 \times 10^{-17}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Rua Arquiteto Luiz Nunes, bairro da Imbiribeira, entre os números 314 e 375,
+sentido IPSEP:
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street3.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street3.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street3.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+Média: $193.7405$; Desvio Padrão: $122.8915$; Mediana: $197$.
+
+P-valor do Shapiro-Wilk: $2.7082 \times 10^{-14}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida General San Martin, número 1864:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street4.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street4.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street4.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $244.1841$; Desvio Padrão: $130.0874$; Mediana: $303$.
+
+P-valor do Shapiro-Wilk: $2.224 \times 10^{-24}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Afonso Olindense, número 996:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street5.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street5.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street5.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $123.7571$; Desvio Padrão: $73.1166$; Mediana: $138$.
+
+P-valor do Shapiro-Wilk: $2.2047 \times 10^{-14}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Maurício de Nassau, 276:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street6.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street6.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street6.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $193.3013$; Desvio Padrão: $123.7284$; Mediana: $206$.
+
+P-valor do Shapiro-Wilk: $2.7647 \times 10^{-17}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Alfredo Lisboa, número 33:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street7.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street7.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street7.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $189.9832$; Desvio Padrão: $164.8623$; Mediana: $146$.
+
+P-valor do Shapiro-Wilk: $1.6042 \times 10^{-19}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Rua Capitão Temudo, Cabanga, em frente à praça Governador Paulo Guerra, sentido
+Pina:
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street8.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street8.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street8.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+Média: $306.3838$; Desvio Padrão: $166.7222$; Mediana: $347$.
+
+P-valor do Shapiro-Wilk: $2.0613 \times 10^{-16}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Antônio de Goes, após a Ponte Agamenon Magalhães, sentido Derby:
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street9.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street9.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street9.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+Média: $401.8287$; Desvio Padrão: $223.2702$; Mediana: $474$.
+
+P-valor do Shapiro-Wilk: $1.4037 \times 10^{-18}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Dom João VI, em frente ao Ponto de Ônibus, bairro da Imbiribeira:
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street10.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street10.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street10.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+Média: $170.6666$; Desvio Padrão: $122.5965$; Mediana: $173$.
+
+P-valor do Shapiro-Wilk: $1.9794 \times 10^{-16}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Saturnino de Brito, número 445, sentido Pina:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street11.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street11.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street11.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $193.7444$; Desvio Padrão: $135.966$; Mediana: $244$.
+
+P-valor do Shapiro-Wilk: $1.123 \times 10^{-20}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Governador Agamenon Magalhães, próximo ao viaduto Presidente Médici:
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street12.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street12.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street12.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+Média: $352.392$; Desvio Padrão: $219.4974$; Mediana: $359$.
+
+P-valor do Shapiro-Wilk: $4.4718 \times 10^{-12}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Marechal Mascarenhas de Moraes, Aeroporto Bairro Imbiribeira:
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street13.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street13.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street13.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+Média: $269.7269$; Desvio Padrão: $159.9477$; Mediana: $282$.
+
+P-valor do Shapiro-Wilk: $3.5736 \times 10^{-17}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Conselheiro Aguiar, próximo ao número 1350, Conjunto Residencial
+Pernambuco:
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street14.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street14.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street14.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+Média: $318.4522$; Desvio Padrão: $218.1112$; Mediana: $324$.
+
+P-valor do Shapiro-Wilk: $1.0549 \times 10^{-12}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Engenheiro Antônio de Goes, número 124:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street15.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street15.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street15.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $244.4404$; Desvio Padrão: $167.3475$; Mediana: $229.5$.
+
+P-valor do Shapiro-Wilk: $8.5644 \times 10^{-20}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Engenheiro José Estelita, entre os postes de iluminação 19-R e 21-R:
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street16.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street16.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street16.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+Média: $162.8684$; Desvio Padrão: $144.7380$; Mediana: $114$.
+
+P-valor do Shapiro-Wilk: $2.7657 \times 10^{-21}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Cais Santa Rita, próximo ao número 675:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street17.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street17.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street17.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $425.8256$; Desvio Padrão: $311.6514$; Mediana: $327$.
+
+P-valor do Shapiro-Wilk: $2.607 \times 10^{-23}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Avenida Rui Barbosa, número 1397:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street18.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street18.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street18.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $74.1692$; Desvio Padrão: $47.3340$; Mediana: $85.5$.
+
+P-valor do Shapiro-Wilk: $2.7457 \times 10^{-16}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Rua Arquiteto Luiz Nunes, número 261A, sentido subúrbio:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street19.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street19.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street19.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $183.8888$; Desvio Padrão: $124.0896$; Mediana: $238$.
+
+P-valor do Shapiro-Wilk: $2.6422 \times 10^{-11}$.
+\end{frame}
+
+\begin{frame}{Exploração dos Dados}
+Rua Arquiteto Luiz Nunes, número 261A, sentido centro:
+\vskip 0.05cm
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../histograms/street20.png}
+		\caption*{Histograma}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../boxplots/street20.png}
+		\caption*{\textit{Boxplot}}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../qqplots/street20.png}
+		\caption*{\textit{QQ Plot}}
+	\end{subfigure}
+\end{figure}
+\vskip 0.05cm
+Média: $181.7821$; Desvio Padrão: $146.9786$; Mediana: $141$.
+
+P-valor do Shapiro-Wilk: $1.1984 \times 10^{-12}$.
+\end{frame}
+
+
+\begin{frame}{Exploração dos Dados}
+	Algumas considerações sobre os dados:
+	\vskip 0.5cm
+	\begin{itemize}
+		\item Desvio padrão alto para algumas amostras, por tanto, alta variabilidade.
+		\item Nenhuma das amostras passou no teste de Shapiro-Wilk com nível de
+		significância $\alpha = 0.05$, por tanto, não serão consideradas
+		normais.
+	\end{itemize}
+\end{frame}
