@@ -14,15 +14,6 @@ Para executar os experimentos e análises desse projeto, é necessário primeiro
 instalar o R. Isso pode ser feito acessando o
 [site oficial da linguagem](https://www.r-project.org/).
 
-### Pacotes R utilizados
-
-Você precisa instalar o pacote "PMCMR" se quiser obter o ranking pelo teste
-de Nemenyi. Para isso, abra o R e execute:
-
-```R
-install.packages('PMCMR')
-```
-
 ## Execução do Experimento
 
 Para gerar as imagens utilizadas na apresentação e no relatório, execute o
